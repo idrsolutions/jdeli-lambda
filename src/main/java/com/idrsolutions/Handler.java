@@ -11,33 +11,19 @@ import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.S3Object;
 import com.idrsolutions.image.JDeli;
-import com.idrsolutions.image.encoder.OutputFormat;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
+import static com.idrsolutions.Config.*;
+
 
 /**
- * A AWS Lambda Handler to convert
+ * An AWS Lambda Handler to convert
  */
 public class Handler implements RequestHandler<S3Event, String> {
-    /** The format to convert files into */
-    static final OutputFormat DST_FORMAT = OutputFormat.WEBP;
-
-    /** The directory within the bucket where files are sourced from */
-    static final String SRC_DIR = "input/";
-
-    /** The destination in the bucket where converted files are placed */
-    static final String DST_DIR = "output/";
-
-    /** Whether to delete src files after conversion */
-    static final boolean DELETE_SRC = true;
-
-    /** Whether to delete src files that failed to convert */
-    static final boolean DELETE_FAILED = true;
-
-    @Override
+        @Override
     public String handleRequest(final S3Event s3Event, final Context context) {
         final LambdaLogger logger = context.getLogger();
 
@@ -118,7 +104,7 @@ public class Handler implements RequestHandler<S3Event, String> {
      * @return The extension
      */
     String getExtension() {
-        switch (Handler.DST_FORMAT) {
+        switch (Config.DST_FORMAT) {
             case BMP:
                 return ".bmp";
             case GIF:
@@ -146,7 +132,7 @@ public class Handler implements RequestHandler<S3Event, String> {
      * @return the Mimetype
      */
     String getMimeType() {
-        switch (Handler.DST_FORMAT) {
+        switch (Config.DST_FORMAT) {
             case BMP:
                 return "image/bmp";
             case GIF:
