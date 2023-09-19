@@ -3,6 +3,8 @@ An AWS Lambda function for performing automatic image type of files uploaded to 
 
 This implementation uses a single bucket, with recursive execution protection using metadata.
 
+This repo is a part of an example usage tutorial for JDeli, you can find the full tutorial on our [Support Site](https://support.idrsolutions.com/jdeli/examples/aws-lambda)
+
 -----
 
 # Customisation #
