@@ -112,6 +112,7 @@ public class Handler implements RequestHandler<S3Event, String> {
             case HEIC:
                 return ".heic";
             case JPEG2000:
+                return ".jpx";
             case JPEG:
                 return ".jpg";
             case PNG:
@@ -140,6 +141,7 @@ public class Handler implements RequestHandler<S3Event, String> {
             case HEIC:
                 return "image/heic";
             case JPEG2000:
+                return "image/jpx";
             case JPEG:
                 return "image/jpeg";
             case PNG:
