@@ -1,5 +1,5 @@
 # jdeli-lambda
-An AWS Lambda function for performing automatic image type of files uploaded to an S3 Bucket conversion using JDeli.
+An AWS Lambda function for performing automatic image conversion using JDeli on files uploaded to an S3 Bucket.
 
 This implementation uses a single bucket, with recursive execution protection using metadata.
 
@@ -10,13 +10,13 @@ This repo is a part of an example usage tutorial for JDeli, you can find the ful
 # Customisation #
 Several configuration options have been exposed in `con.idrsolutions.Config`:
 
-| Option        | Description                                                                                                                        |
-|---------------|:-----------------------------------------------------------------------------------------------------------------------------------|
-| DST_FORMAT    | The image format that uploaded files should be converted into                                                                      |
-| SRC_DIR       | The directory within the bucket where files will be uploaded to <br/>(Must match the Prefix configured in the Lambda's S3 trigger) |
-| DST_DIR       | The directory within the bucket where converted files will be placed                                                               |
-| DELETE_SRC    | Whether the original file that was converted should be deleted                                                                     |
-| DELETE_FAILED | Whether files that failed to convert should be deleted                                                                             |
+| Option        | Default | Description                                                                                                                        | 
+|---------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
+| DST_FORMAT    | PNG     | The image format that uploaded files should be converted into                                                                      |
+| SRC_DIR       | /input  | The directory within the bucket where files will be uploaded to <br/>(Must match the Prefix configured in the Lambda's S3 trigger) |
+| DST_DIR       | /output | The directory within the bucket where converted files will be placed                                                               |
+| DELETE_SRC    | true    | Whether the original file that was converted should be deleted                                                                     |
+| DELETE_FAILED | true    | Whether files that failed to convert should be deleted                                                                             |
 
 -----
 
