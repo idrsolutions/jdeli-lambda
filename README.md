@@ -1,5 +1,5 @@
 # jdeli-lambda
-An AWS Lambda function for performing automatic image conversion using JDeli on files uploaded to an S3 Bucket.
+An AWS Lambda function for performing automatic image conversion using [JDeli](https://www.idrsolutions.com/jdeli/) on files uploaded to an S3 Bucket.
 
 This implementation uses a single bucket, with recursive execution protection using metadata.
 
